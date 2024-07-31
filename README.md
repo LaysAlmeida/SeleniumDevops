@@ -1,7 +1,7 @@
 
 # SeleniumWebdriverQazandoBase
 
-Projeto base de Selenium Webdriver e Java da @qazando.
+Projeto base de Selenium Webdriver e Java da @qazando destinado ao aprendizado do Github Actions.
 
 
 
