@@ -1,10 +1,8 @@
-name: Testes Regressivos
+name: Testes Agendados
 
 on:
-  pull_request:
-    branches: [main]
   schedule:
-    - cron: "* 8 * * 1-5"
+    - cron: "*/5 * * * 1-5"
 
 jobs:
   Runtest:
@@ -52,7 +50,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_CHANNEL: testes
           SLACK_COLOR: ${{ job.status }}
-          SLACK_MESSAGE: 'Testes do PR executado com sucesso! :white_check_mark:'
+          SLACK_MESSAGE: 'Testes Agendados executados com sucesso! :white_check_mark:'
           SLACK_USERNAME: SUCESSO
 
       - name: Enviar notificação Slack - Falha
@@ -62,5 +60,5 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_CHANNEL: testes
           SLACK_COLOR: ${{ job.status }}
-          SLACK_MESSAGE: 'Testes do PR falharam! :x_vermelho:'
+          SLACK_MESSAGE: 'Testes Agendados falharam! :x_vermelho:'
           SLACK_USERNAME: FALHA
